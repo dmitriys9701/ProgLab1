@@ -16,7 +16,7 @@ namespace ConsoleApplication1
             ArrayList arr = new ArrayList();
             for(int j = 0; j < i; j++)
             {
-                arr.Add(ran.Next(1, 100));
+                arr.Add(ran.NextDouble());
             }
             return arr;
         }
@@ -31,14 +31,14 @@ namespace ConsoleApplication1
             Random ran = new Random();
             for(int j = 0; j < i; j++)
             {
-                arr.Add(ran.Next(1, 50));
+                arr.Add(ran.NextDouble());
             }
         }
 
         public static void PrintMyCollection(ArrayList arr)
         {
-            foreach (int a in arr)
-                Console.Write("{0} ", a);
+            foreach (double a in arr)
+                Console.Write(string.Format("{0:0.00} ", a));
             Console.Write("\n");
         }
     }
@@ -48,7 +48,7 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            ArrayList col = MyCollection.NewCollection(3);
+            ArrayList col = MyCollection.NewCollection(5);
             MyCollection.PrintMyCollection(col);
             MyCollection.AddElementMyCollection(3, ref col);
             MyCollection.PrintMyCollection(col);
