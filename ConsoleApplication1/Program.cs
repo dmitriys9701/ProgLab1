@@ -50,7 +50,7 @@ namespace ConsoleApplication1
         {
             ArrayList col = MyCollection.NewCollection(5);
             MyCollection.PrintMyCollection(col);
-            MyCollection.AddElementMyCollection(3, ref col);
+            MyCollection.AddElementMyCollection(10, ref col);
             MyCollection.PrintMyCollection(col);
             MyCollection.RemoveElementMyCollection(5, 1, ref col);
             MyCollection.PrintMyCollection(col);
