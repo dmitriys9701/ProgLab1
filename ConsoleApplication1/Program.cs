@@ -1,22 +1,37 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 
 namespace ConsoleApplication1
 {
     class MyCollection
     {
+        static Random _ran = new Random();
+
+        public static Random Ran
+        {
+            get
+            {
+                return _ran;
+            }
+
+            set
+            {
+                _ran = value;
+            }
+        }
+
+        public static double Random()
+        {
+            return Ran.NextDouble();
+        }
+
         public static ArrayList NewCollection(int i)
         {
-            Random ran = new Random();
+            
             ArrayList arr = new ArrayList();
             for(int j = 0; j < i; j++)
             {
-                arr.Add(ran.NextDouble());
+                arr.Add(Random());
             }
             return arr;
         }
@@ -28,17 +43,16 @@ namespace ConsoleApplication1
 
         public static void AddElementMyCollection(int i, ref ArrayList arr)
         {
-            Random ran = new Random();
             for(int j = 0; j < i; j++)
             {
-                arr.Add(ran.NextDouble());
+                arr.Add(Random());
             }
         }
 
         public static void PrintMyCollection(ArrayList arr)
         {
             foreach (double a in arr)
-                Console.Write(string.Format("{0:0.00} ", a));
+                Console.Write($"{a:0.00} ");
             Console.Write("\n");
         }
     }
@@ -46,7 +60,7 @@ namespace ConsoleApplication1
 
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             ArrayList col = MyCollection.NewCollection(5);
             MyCollection.PrintMyCollection(col);
